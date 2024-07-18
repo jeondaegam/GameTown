@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     private void LoadGame()
     {
         SpawnPlayer(0);
+        _player.gameObject.SetActive(false); // TODO 이 타이밍에 쌩코딩 해도 되나 ..?
         LoadFile(); // 읽을 파일이 없으면 ? 
         SaveEnabled = true; // 이게 true면 어떻게 되는데 ?
 
@@ -127,25 +128,25 @@ public class GameManager : MonoBehaviour
     }
 
 
-    // DONE 이게 뭔데 ? = 로딩씬에서 로딩이 완료되면 call 하는 함수 
+    // 로딩 작업이 완료된 후 씬을 활성화 한다
     public void CompleteLoading()
     {
         if (LoadingOp != null)
         {
             Debug.Log("CompleteLoading 호출");
-            // 비동기로 로드해둔 Home 씬을 활성화
+            // true = 비동기로 작업중인 Home씬 로드가 끝나면 씬을 자동으로 활성화 한다 
             LoadingOp.allowSceneActivation = true;
-
-            // 비동기 작업이 완료된 리소스를 참조 해제 
+            // 씬을 띄운 뒤 캐릭터 ON
+            _player.gameObject.SetActive(true);
+            // 작업이 완료된 리소스를 참조 해제 
             LoadingOp = null;
         }
     }
 
 
-    // TODO 비동기 씬 로드 작업이 시작 전이면 
     public float GetLoadingProgress()
     {
-        // 비동기 씬 로드 작업이 시작 전이면 
+        // 비동기작업(=Home씬로드)이 시작 전이면 
         if (LoadingOp == null)
         {
             return 0f;
