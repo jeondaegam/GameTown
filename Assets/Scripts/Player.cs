@@ -8,11 +8,14 @@ public class Player : MonoBehaviour
     public string Name;
     public int Health;
     public int Energy;
-    public int Money;
+    public int Gem;
 
+    public event Action OnGemChanged;
+    public event Action OnEnergyChanged;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
+
 }

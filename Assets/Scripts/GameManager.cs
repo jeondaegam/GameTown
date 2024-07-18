@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
                 Name = _player.Name,
                 Health = _player.Health,
                 Energy = _player.Energy,
-                Money = _player.Money
+                Gem = _player.Gem
             };
             File.WriteAllText(Application.persistentDataPath + SavedFileName,
                 JsonUtility.ToJson(data)); // 직렬화 시킬 데이터를 넣는다 .

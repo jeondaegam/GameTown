@@ -1833,7 +1833,7 @@ MonoBehaviour:
   _gameRoomButton: {fileID: 1661615026}
   _restaurantButton: {fileID: 427193730}
   _collegeButton: {fileID: 7518818}
-  MoneyBar: {fileID: 725463509}
+  GemBar: {fileID: 725463509}
   EnergyBar: {fileID: 1235905574}
 --- !u!1 &950212326
 GameObject:

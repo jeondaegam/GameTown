@@ -11,5 +11,5 @@ public class PlayerData : MonoBehaviour
     public string Name;
     public int Health;
     public int Energy;
-    public int Money;
+    public int Gem;
 }

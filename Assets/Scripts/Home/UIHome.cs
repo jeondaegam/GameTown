@@ -12,17 +12,17 @@ public class UIHome : MonoBehaviour
     public Button _restaurantButton;
     public Button _collegeButton;
 
-    public UIStatus MoneyBar;
+    public UIStatus GemBar;
     public UIStatus EnergyBar;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        // TODO 
-        // GameManager에서 Player의 OnMoneyChanged 이벤트가 발생하면 Player_UpdateMoney 리스너 메서드를 실행한다 
-        //GameManager.Instance.Player.OnMoneyChanged += UpdatePlayerMoney;
-        //GameManager.Instance.Player.OnEnergyChanged += UpdatePlayerEnergy;
+        UpdatePlayerGem();
+        UpdatePlayerEnergy();
+        // player에서 OnMoneyChanged 이벤트 액션이 발생하면 리스너가 UpdatePlayerGem 메서드를 실행한다 
+        GameManager.Instance._player.OnGemChanged += UpdatePlayerGem;
+        GameManager.Instance._player.OnEnergyChanged += UpdatePlayerEnergy;
 
         // 버튼 클릭 이벤트가 발생하면  소괄호 안의 메서드가 호출된다
         _dungeonButton.onClick.AddListener(HandleDungeonButtonClicked);
@@ -31,14 +31,15 @@ public class UIHome : MonoBehaviour
         _collegeButton.onClick.AddListener(HandleCollegeButtonClicked);
     }
 
-    private void UpdatePlayerMoney()
+    private void UpdatePlayerGem()
     {
-        //MoneyBar.UpdateUI(GameManager.Instance.Player.Money.ToString());
+        string formattedGem = GameManager.Instance._player.Gem.ToString("#,###");
+        GemBar.UpdateUI(formattedGem);
     }
 
     private void UpdatePlayerEnergy()
     {
-        //EnergyBar.UpdateUI(GameManager.Instance.Player.Energy.ToString());
+        EnergyBar.UpdateUI($"{GameManager.Instance._player.Energy}/100");
     }
 
     private void HandleCollegeButtonClicked()

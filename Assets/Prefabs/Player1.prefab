@@ -733,8 +733,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\uC694\uB9AC\uC22D\uC774"
   Health: 100
-  Energy: 70
-  Money: 5000
+  Energy: 75
+  Gem: 1050
 --- !u!1 &5863642937083575645
 GameObject:
   m_ObjectHideFlags: 0
