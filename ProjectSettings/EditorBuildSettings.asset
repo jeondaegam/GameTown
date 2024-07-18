@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 74e132b148cf6451f8a4bba2eed5819a
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 984150de7a3124f7190d6eb32b1e5668
+  - enabled: 1
+    path: Assets/Scenes/RockPaperScissors.unity
+    guid: abdaa6f71e68f4affa94a1e698c0e252
   m_configObjects: {}

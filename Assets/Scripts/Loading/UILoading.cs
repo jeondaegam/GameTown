@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UILoading : MonoBehaviour
 {
 
-    // 로딩바 = Slider 컴포넌트
+    // 로딩바: Slider 컴포넌트
     public Slider _loadingBar;
 
     // 로딩 속도 
@@ -25,48 +25,44 @@ public class UILoading : MonoBehaviour
 
     private IEnumerator LoadingBarFillingRoutine()
     {
-        float value = 0.1f;
         while (true)
         {
-            // TODO 
-            //if (GameManager.Instance == null)
-            //{
-            //    yield return null;
-            //    continue;
-            //}
+            if (GameManager.Instance == null)
+            {
+                yield return null;
+                continue;
+            }
 
             if (_loadingBar.value >= .9f)
             {
                 _loadingBar.value += _maxLoadingSpeed;
+
+                // 슬라이딩바 로딩 완료 
                 if (_loadingBar.value >= 1f)
                 {
-                    // TODO
-                    //GameManager.Instance.CompleteLoadin();
+                    GameManager.Instance.CompleteLoading();
                     break;
                 }
             }
             else
             {
+                // 로딩바가 최대값(0.9)을 넘어가지 않도록 체크 
+                // 비동기 작업 진행이 loadingBar 증가 속도보다 느리면 loadingProgress 작업 속도에 로딩바 속도를 맞춘다
                 _loadingBar.value += _maxLoadingSpeed;
-                // TODO 
-                //float value = GameManager.Instance.GetLoadingProgress();
-                 value += 0.0001f; //여기서 0.1f 더해줬더니 1로 훅가는듯 ? // 아닌가봄 .. 0.0001f로 했더니 빠르게 가다 느리게가다 빠름 
-                /* 
-                 * 로딩바 임계값 설정 
-                 * 로딩바가 최대값을 넘어가지 않도록 체크 
-                 */
-                if (_loadingBar.value > value)
-                {
-                    _loadingBar.value = value;
-                }
-                yield return null;
+                float loadingProgress = GameManager.Instance.GetLoadingProgress();
+                if (_loadingBar.value > loadingProgress)
+                    _loadingBar.value = loadingProgress; // value가 0.9를 초과하는 순간 이 로직을 타고 value = loadingProcess == 0.9가 되면서 무한루프 
             }
+
+            yield return null;
+
         }
     }
 
+
     private IEnumerator RendingTextRoutine(float delay, bool active)
     {
-        while(active)
+        while (active)
         {
             yield return new WaitForSeconds(delay);
             _loadingText.enabled = false;
