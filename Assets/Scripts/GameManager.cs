@@ -153,7 +153,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Loading progress: {Mathf.RoundToInt(LoadingOp.progress * 100)}%");
             return LoadingOp.progress;
         }
     }

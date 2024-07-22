@@ -15,6 +15,13 @@ public class UIHome : MonoBehaviour
     public UIStatus GemBar;
     public UIStatus EnergyBar;
 
+    private enum Scene
+    {
+        Home,
+        Dungeon,
+        RockPaperScissors,
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +67,6 @@ public class UIHome : MonoBehaviour
     private void HandleDungeonButtonClicked()
     {
         Debug.Log("Go Dungeon");
-        //GameManager.Instance.씬 로드 
+        GameManager.Instance.LoadScene(Scene.Dungeon.ToString());
     }
 }
