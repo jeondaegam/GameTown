@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Home.unity
     guid: 74e132b148cf6451f8a4bba2eed5819a
   - enabled: 1
-    path: Assets/Scenes/Loading.unity
+    path: Assets/GameStart/Loading.unity
     guid: 984150de7a3124f7190d6eb32b1e5668
   - enabled: 1
     path: Assets/Scenes/RockPaperScissors.unity

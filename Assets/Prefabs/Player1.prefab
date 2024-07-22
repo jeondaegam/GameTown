@@ -698,7 +698,7 @@ Transform:
   m_GameObject: {fileID: 5486779913186793426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6, y: -1.25, z: 0}
+  m_LocalPosition: {x: -3.6, y: -0.4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -732,9 +732,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: "\uC694\uB9AC\uC22D\uC774"
-  Health: 100
+  Health: 1000
   Energy: 75
   Gem: 1050
+  Damage: 137
 --- !u!1 &5863642937083575645
 GameObject:
   m_ObjectHideFlags: 0

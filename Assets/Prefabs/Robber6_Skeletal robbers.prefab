@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 529602511
+  m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300120, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2928669225c34a9f91f08f0c835fd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: "\uC30D\uB465\uC774\uD574\uACE8\uC0B0\uC801"
+  Health: 1100
+  Damage: 35
 --- !u!1001 &737149865449709775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 212723231056231366, guid: 40e4278a57f11404583a38d4c5dd9b36, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

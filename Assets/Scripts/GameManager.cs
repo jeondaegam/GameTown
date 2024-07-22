@@ -136,8 +136,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("CompleteLoading 호출");
             // true = 비동기로 작업중인 Home씬 로드가 끝나면 씬을 자동으로 활성화 한다 
             LoadingOp.allowSceneActivation = true;
-            // 씬을 띄운 뒤 캐릭터 ON
-            _player.gameObject.SetActive(true);
             // 작업이 완료된 리소스를 참조 해제 
             LoadingOp = null;
         }
