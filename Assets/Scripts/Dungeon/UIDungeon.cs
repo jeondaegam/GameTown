@@ -19,10 +19,17 @@ public class UIDungeon : MonoBehaviour
 
     public Dungeon _dungeon;
 
+    public UIStatus _enegerBar;
+    public UIStatus _gemBar;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
+        UpdatePlaeyrEnergey();
+        UpdatePlayerGem();
+
         _spawnMonsterBtn.onClick.AddListener(SpawnMonsterBtnClicked);
         _attackBtn.onClick.AddListener(AttackMonsterCBtnClicked);
         _runBtn.onClick.AddListener(RunAwayFromMonsterBtnClicked);
@@ -31,6 +38,17 @@ public class UIDungeon : MonoBehaviour
         _inventoryBtn.onClick.AddListener(InventoryBtnClicked);
         _shopBtn.onClick.AddListener(ShopBtnClicked);
         _goHomeBtn.onClick.AddListener(GoHomeBtnClicked);
+    }
+
+    private void UpdatePlaeyrEnergey()
+    {
+        _enegerBar.UpdateUI($"{GameManager.Instance._player.Energy}/100");
+    }
+
+    private void UpdatePlayerGem()
+    {
+        string formattedGem = GameManager.Instance._player.Gem.ToString("#,###");
+        _gemBar.UpdateUI(formattedGem);
     }
 
 
@@ -51,7 +69,7 @@ public class UIDungeon : MonoBehaviour
 
     private void SpawnMonsterBtnClicked()
     {
-        _dungeon.SpawnMonster();
+        //_dungeon.SpawnMonster();
     }
 
     private void GoHomeBtnClicked()
@@ -70,9 +88,4 @@ public class UIDungeon : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
