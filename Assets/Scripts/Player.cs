@@ -23,15 +23,16 @@ public class Player : MonoBehaviour
         fieldMonster.TakeDamage(Damage, transform);
         Debug.Log($"{fieldMonster.Name}을 공격했습니다 !");
 
-        if (fieldMonster.IsDead())
-        {
-            int reward = Random.Range(100, 501);
-            GainReward(reward);
-        }
+        // 몬스터가 죽었을 때 보상은 던전에서 관리 
+        //if (fieldMonster.IsDead())
+        //{
+        //    int reward = Random.Range(100, 501);
+        //    GainReward(reward);
+        //}
 
     }
 
-    private void GainReward(int reward)
+    public void GainReward(int reward)
     {
         Gem += reward;
 
@@ -39,9 +40,14 @@ public class Player : MonoBehaviour
         {
             OnGemChanged();
         }
-        Debug.Log($"{reward}원을 얻었습니다.");
+        Debug.Log($"Gem {reward}개를 얻었습니다.");
     }
 
+    // TODO 
+    internal void AddItem()
+    {
+        throw new NotImplementedException();
+    }
 
     private void Awake()
     {

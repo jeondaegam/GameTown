@@ -66,7 +66,7 @@ public class UIDungeon : MonoBehaviour
     // Spawn a monster
     private void SpawnMonsterBtnClicked()
     {
-        _dungeon.SpawnMonster();
+        _dungeon.SpawnMonsterOnField();
     }
 
     // Attack

@@ -102,6 +102,12 @@ MonoBehaviour:
   Name: "\uAC80\uC740\uB9C8\uC2A4\uD06C\uAC15\uB3C4\uB2E8"
   Health: 2000
   Damage: 70
+  _items:
+  - {fileID: 6279704580311138326, guid: 4eb0501e851bf4d208ced7b30bea9f42, type: 3}
+  - {fileID: 6279704580311138326, guid: 4eb0501e851bf4d208ced7b30bea9f42, type: 3}
+  - {fileID: 6279704580311138326, guid: 4eb0501e851bf4d208ced7b30bea9f42, type: 3}
+  - {fileID: 6090676883208354916, guid: 4192a62443bd64cc59b0da6daf6ffd1e, type: 3}
+  - {fileID: 3511736924868325327, guid: 216eca1dee1e94cde810f830e6263a90, type: 3}
 --- !u!1001 &6045197736846181979
 PrefabInstance:
   m_ObjectHideFlags: 0

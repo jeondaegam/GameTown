@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Monster : MonoBehaviour
 {
@@ -9,11 +10,15 @@ public class Monster : MonoBehaviour
     public string Name;
     public int Health;
     public int Damage;
+    public Item[] _items;
+
+    //private int MaxItemQuantity;
+
+    public event Action OnMonsterDeath;
 
     /**
      * 사망여부 체크 
-     * Health가 <=0이면 사망처리
-     */ 
+     */
     public bool IsDead()
     {
         return Health <= 0;
@@ -26,11 +31,15 @@ public class Monster : MonoBehaviour
     {
         Health -= damage;
 
-        if (Health <= 0)
+        // 몬스터 체력이 0이되면 사망 처리
+        if (IsDead())
         {
             Health = 0;
             Debug.Log($"<{Name}>이 죽었습니다 .");
-            // DropItem(destination);
+            if (OnMonsterDeath != null)
+            {
+                OnMonsterDeath();
+            }
         }
         ShowStats();
     }
@@ -43,5 +52,9 @@ public class Monster : MonoBehaviour
         Debug.Log($"<{Name}> \n체력:{Health} / 공격력:{Damage}");
     }
 
-
+    internal void DropItem()
+    {
+        int random = Random.Range(0, _items.Length);
+        Item droppedItem = Instantiate(_items[random], transform.position, _items[random].transform.rotation);
+    }
 }

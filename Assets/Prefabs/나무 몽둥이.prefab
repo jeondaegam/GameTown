@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8241828422016208621
+--- !u!1 &2105610526543074917
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6692229976327154152}
-  - component: {fileID: 3097724465864321449}
-  - component: {fileID: 2234735199314909683}
+  - component: {fileID: 999337589915255159}
+  - component: {fileID: 1293779438322077358}
+  - component: {fileID: 2424298759824275482}
   m_Layer: 0
-  m_Name: Robber5_Ghost robbers
-  m_TagString: Player
+  m_Name: "\uB098\uBB34 \uBABD\uB465\uC774"
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6692229976327154152
+--- !u!4 &999337589915255159
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8241828422016208621}
+  m_GameObject: {fileID: 2105610526543074917}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3097724465864321449
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+--- !u!212 &1293779438322077358
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8241828422016208621}
+  m_GameObject: {fileID: 2105610526543074917}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -65,42 +65,41 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300110, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.77254903}
+  m_SortingLayerID: -1123090505
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: dc038b2ab22c65c4488779487c9dae97, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.92, y: 1.07}
+  m_Size: {x: 1.92, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2234735199314909683
+--- !u!114 &2424298759824275482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8241828422016208621}
+  m_GameObject: {fileID: 2105610526543074917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2928669225c34a9f91f08f0c835fd5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 61d376fc031514ec6a3665b6f80bbdd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: "\uC678\uD314\uC774\uC720\uB839\uC0B0\uC801"
-  Health: 1500
-  Damage: 55
-  _items:
-  - {fileID: 6279704580311138326, guid: 4eb0501e851bf4d208ced7b30bea9f42, type: 3}
-  - {fileID: 6279704580311138326, guid: 4eb0501e851bf4d208ced7b30bea9f42, type: 3}
-  - {fileID: 744545711670200071, guid: 841debb74555d4205affaf9cb716b9b4, type: 3}
+  Name: "\uB098\uBB34\uBABD\uB465\uC774"
+  Description: "\uD2BC\uD2BC\uD55C \uB098\uBB34 \uBABD\uB465\uC774"
+  AttackPower: 55
+  DefensePower: 0
+  Recovery: 0
+  MoveSpeed: 7
