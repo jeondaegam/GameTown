@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: "\uAC80\uC740\uB9C8\uC2A4\uD06C\uAC15\uB3C4\uB2E8"
-  Health: 2000
+  MaxHealth: 1300
+  CurHealth: 0
   Damage: 70
   _items:
   - {fileID: 6279704580311138326, guid: 4eb0501e851bf4d208ced7b30bea9f42, type: 3}

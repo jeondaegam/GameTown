@@ -16,19 +16,27 @@ public class Dungeon : MonoBehaviour
     private int MaxReward = 500;
 
     private Player Player;
-    private Monster _fieldMonster;
+    public Monster _fieldMonster; // TODO public으로 했을 때 레퍼런싱 안해도 돌아가나 ? 안되면 Internal
+
+    public enum BattleState
+    {
+        MonsterTurn,
+        PlayerTurn,
+    }
+
+    public BattleState state;
+
 
 
     void Start()
     {
         // 레퍼런싱 안하는 방법 
         Player = GameManager.Instance._player;
-        //_fieldMonster.OnMonsterDeath += DropReward; //monster에 값이 없으면 안되나  
     }
 
     private void DropReward()
     {
-        int gemCnt = Random.Range(0, MaxReward); // TODO 499까지인지 500까지 인지 ? +1해주기  
+        int gemCnt = Random.Range(0, MaxReward+1);
         Item gem = Instantiate(_reward, _fieldMonster.transform.position, _reward.transform.rotation);
         Player.GainReward(gemCnt);
     }
@@ -41,9 +49,25 @@ public class Dungeon : MonoBehaviour
     {
         int random = Random.Range(0, _monsters.Length);
         _fieldMonster = SpawnMonster(random);
-        _fieldMonster.OnMonsterDeath += DropReward; // 몬스터 소환 후 이벤트 리스너 등록 
         Debug.Log($"<{_fieldMonster.Name}>이 나타났습니다 - !");
+
+        // 몬스터 소환 후 이벤트 리스너 등록 
+        _fieldMonster.OnMonsterDeath += DropReward;
+        _fieldMonster.OnMonsterDeath += OnMonsterDestroyed;
+
+        state = BattleState.PlayerTurn;
     }
+
+
+    /**
+     * 몬스터가 죽으면 이벤트 리스너를 해제한다 
+     */
+    private void OnMonsterDestroyed()
+    {
+        _fieldMonster.OnMonsterDeath -= DropReward;
+        _fieldMonster.OnMonsterDeath -= OnMonsterDestroyed;
+    }
+
 
     /**
      * 몬스터 인스턴스 생성
@@ -59,6 +83,7 @@ public class Dungeon : MonoBehaviour
     {
         //int random = Random.Range(0, _monsters.Length);
         //_fieldMonster = SpawnMonster(random);
+        //IsPlayerTurn = true;
     }
 
 
@@ -71,29 +96,66 @@ public class Dungeon : MonoBehaviour
     /**
      * 몬스터를 공격한다 
      */
-    public void Attack()
+    public void AttackToMonster()
     {
         if (_fieldMonster != null)
         {
             Player.Attack(_fieldMonster);
 
-            // 몬스터가 들고있는 아이템을 드랍
             if (_fieldMonster.IsDead())
             {
+                // 몬스터의 아이템을 드랍
                 _fieldMonster.DropItem();
                 Destroy(_fieldMonster.gameObject);
+            }
+            else
+            {
+                // 몬스터에게 턴을 넘긴다
+                StartCoroutine(MonsterTurn());
             }
         }
 
     }
 
+    /**
+     * 턴을 받고 1.5초 뒤에 플레이어를 공격한다 
+     */
+    private IEnumerator MonsterTurn()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        state = BattleState.MonsterTurn;
+        AttackToPlayer();
+        PlayerTurn();
+    }
+
+    private void PlayerTurn()
+    {
+        state = BattleState.PlayerTurn;
+        // TODO - 공격 버튼 활성화
+        // TODO - MonsterTurn()과 동일하게 변경 필요 
+    }
+
+    /**
+     * 플레이어를 공격한다 
+     */
+    public void AttackToPlayer()
+    {
+        _fieldMonster.Attack(Player);
+    }
+
+
+    /**
+     * 몬스터에게서 도망친다 
+     */
     public void Runaway()
     {
-        if(_fieldMonster != null)
+        if (_fieldMonster != null)
         {
             Debug.Log($"<{_fieldMonster.Name}>으로부터 도망칩니다 -");
             Destroy(_fieldMonster.gameObject);
-        } else
+        }
+        else
         {
             Debug.Log("아무것도 없습니다. ");
         }

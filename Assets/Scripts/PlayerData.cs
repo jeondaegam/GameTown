@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     public string Name;
-    public int Health;
+    public int MaxHealth;
     public int Energy;
     public int Gem;
 }

@@ -7,13 +7,24 @@ using Random = UnityEngine.Random;
 public class Player : MonoBehaviour
 {
     public string Name;
-    public int Health;
+    // 최대 체력 
+    public int MaxHealth;
+    // 현재 남은 체력
+    [HideInInspector] // 현재 남은 체력 
+    public int CurHealth;
     public int Energy;
     public int Gem;
     public int Damage;
 
     public event Action OnGemChanged;
     public event Action OnEnergyChanged;
+    public event Action OnHealtyChanged;
+
+    private void Start()
+    {
+        CurHealth = MaxHealth;
+    }
+
 
     /**
      * 몬스터 공격
@@ -22,13 +33,6 @@ public class Player : MonoBehaviour
     {
         fieldMonster.TakeDamage(Damage, transform);
         Debug.Log($"{fieldMonster.Name}을 공격했습니다 !");
-
-        // 몬스터가 죽었을 때 보상은 던전에서 관리 
-        //if (fieldMonster.IsDead())
-        //{
-        //    int reward = Random.Range(100, 501);
-        //    GainReward(reward);
-        //}
 
     }
 
@@ -44,10 +48,34 @@ public class Player : MonoBehaviour
     }
 
     // TODO 
-    internal void AddItem()
+    public void AddItem(Item item)
     {
-        throw new NotImplementedException();
+        Debug.Log($"Add Item : 구현 필요 => {item.Name} 획득");
     }
+
+    /**
+     * 공격을 받는다 
+     */
+    public void TakeDamage(int damage)
+    {
+        CurHealth -= damage;
+        if (IsDead())
+        {
+            CurHealth = 0;
+            Debug.Log("의식을 잃고 쓰러집니다 .");
+        }
+        if (OnHealtyChanged != null)
+        {
+            OnHealtyChanged();
+        }
+
+    }
+
+    private bool IsDead()
+    {
+        return CurHealth <= 0;
+    }
+
 
     private void Awake()
     {

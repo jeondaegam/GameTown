@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
             PlayerData data = new PlayerData
             {
                 Name = _player.Name,
-                Health = _player.Health,
+                MaxHealth = _player.MaxHealth,
                 Energy = _player.Energy,
                 Gem = _player.Gem
             };
