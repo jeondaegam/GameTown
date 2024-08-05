@@ -10,7 +10,7 @@ public class UILoading : MonoBehaviour
     public Slider _loadingBar;
 
     // 로딩 속도 
-    public float _maxLoadingSpeed = 0.001f;
+    public float _maxLoadingSpeed = 0.002f;
 
     // Text
     public Text _loadingText;

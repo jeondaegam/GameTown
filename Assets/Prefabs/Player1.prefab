@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: "\uC694\uB9AC\uC22D\uC774"
-  MaxHealth: 500
+  MaxHealth: 250
   CurHealth: 0
   Energy: 75
   Gem: 1050
